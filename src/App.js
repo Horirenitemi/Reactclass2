@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import GitHub from "./component/GitHub";
 
-function App() {
+const App = () => {
+  const [name, setName] = useState("orire")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div 
+    style={{
+      margintop:"100px",
+      marginLeft:"100px",
+    }}>
+    <label style={{
+      marginRight:"20px",
+    }}
+    >
+     Enter your Name:
+    </label>
+      <input placeholder="what is your Name" 
+      value={name}
+      onChange={(e) =>{
+      setName(e.target.value); 
+    }}
+      />
+      <button onClick={()=> {
+        console.log("I am Tapped");
+
+      }}>Enter</button>
+ 
+      <div>
+      welcome {name}</div>
+      <GitHub/>
     </div>
-  );
+  )
+  
 }
 
-export default App;
+export default App
